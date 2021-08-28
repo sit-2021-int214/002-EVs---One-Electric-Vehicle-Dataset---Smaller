@@ -10,7 +10,7 @@ Datasets from: [kaggle](https://www.kaggle.com/geoffnel/evs-one-electric-vehicle
 ## About Us
 งานนี้เป็นส่วนของวิชา INT214 Statistics for Information technology <br/> ภาคเรียนที่ 1 ปีการศึกษา 2564 คณะเทคโนโลยีสารสนเทศ มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี
 
-### Team: 39,42,46,48,53 Group
+### Team: 02,15,60,78 Group
 | No. | Name              | Student ID   |
 |:---:|-------------------|--------------|
 |  1  | นายกรัณย์ภัทร พรหมวิสุทธิ์    | 63130500002  |
