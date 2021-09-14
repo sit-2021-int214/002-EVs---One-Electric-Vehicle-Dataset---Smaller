@@ -1,0 +1,50 @@
+# Workshop 01 EDA: SAT Scores dataset
+
+Dataset from [SAT_original.csv](https://raw.githubusercontent.com/safesit23/INT214-Statistics/main/datasets/SAT_original.csv)
+
+**Created by Name-Surname Paramat Petin (ID: 63130500078)**
+
+### My Step
+1. Define a question
+2. Loading Library and dataset
+3. xxxxxxx
+
+## Define a question
+
+1. How many observation of this dataset (before cleaning) ?
+2. Are there duplicate data sets ? (If have duplicate data, list the data that duplicate)
+3. How many distinct school in this dataset ? (Know after drop duplicate data)
+4. What is min, max, average, quartile of each part in SAT ?
+5. What is min, max, average, quartile of total score in SAT ?
+6. Which school is get highest SAT score ?
+
+Can add more question ....
+
+## Step 0: Loading library and dataset
+
+```
+# Library
+library(name)
+
+# Dataset
+dataset <- read_csv("")
+```
+
+## Step 1: xxxxxx
+
+//Explain here
+
+```
+#Code here
+```
+
+Result:
+
+```
+#Copy Result from console to here
+```
+
+//Explain
+
+- list 1
+- list 2
