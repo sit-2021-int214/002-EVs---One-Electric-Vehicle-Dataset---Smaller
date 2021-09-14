@@ -2,7 +2,7 @@
 
 Dataset from [SAT_original.csv](https://raw.githubusercontent.com/safesit23/INT214-Statistics/main/datasets/SAT_original.csv)
 
-**Created by Name-Surname (ID: 63130500002)**
+**Created by Karunpat Promvisut (ID: 63130500002)**
 
 ### My Step
 1. Define a question
