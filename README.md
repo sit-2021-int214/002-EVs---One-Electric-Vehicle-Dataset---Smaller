@@ -7,6 +7,12 @@ Datasets from: [kaggle](https://www.kaggle.com/geoffnel/evs-one-electric-vehicle
 
 ## Result
 
+## Resources
+### Important Files in Repository
+
+- [ElectricCarData_Norm.csv](./ElectricCarData_Norm.csv): Original Dataset
+- [ElectricCarData_Clean.csv](./ElectricCarData_Clean): Clean Dataset
+
 ## About Us
 งานนี้เป็นส่วนของวิชา INT214 Statistics for Information technology <br/> ภาคเรียนที่ 1 ปีการศึกษา 2564 คณะเทคโนโลยีสารสนเทศ มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี
 
