@@ -10,8 +10,8 @@ Dataset from : https://raw.githubusercontent.com/sit-2021-int214/002-EVs---One-E
 5. Cleaning Dataset
 6. Exploratory Data Analysis
 
-## Step 1 Define a question
-# Defind a question
+# Step 1 Define a question
+## Defind a question
 1. รถยนต์ไฟฟ้ายี่ห้อและโมเดลไหนที่มีความเร็วสูงสุดมากกว่าค่าเฉลี่ยของรถยนต์ไฟฟ้าทั้งหมด
 2. รถยนต์ไฟฟ้ายี่ห้อและโมเดลไหนที่มีความเร็วสูงสุดมากกว่าค่าเฉลี่ยของรถยนต์ไฟฟ้าทั้งหมด และมีราคาน้อยกว่า 60000 ยูโร
 3. รถยนต์ไฟฟ้ายี่ห้อและโมเดลไหนที่มีที่นั่งมากกว่า 4 ที่นั่งและราคาน้อยกว่า 50000 ยูโร
