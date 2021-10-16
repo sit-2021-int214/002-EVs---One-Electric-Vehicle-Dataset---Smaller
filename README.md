@@ -18,7 +18,7 @@ Datasets from: [kaggle](https://www.kaggle.com/geoffnel/evs-one-electric-vehicle
 4. รถยนต์ที่ชาร์จไฟฟ้าหนึ่งครั้งแล้ววิ่งได้มากกว่าค่าเฉลี่ยของรถยนต์ไฟฟ้าทั้งหมดโดยมีราคาต่ำกว่าค่าเฉลี่ยทั้งหมด
 5. รถยนต์ไฟฟ้าที่ประหยัดไฟมากกว่าค่าเฉลี่ยของรถยนต์คันอื่นและมีที่นั่งมากกว่า 4
 
-### 💭 Steps
+## 💭 Steps
 
 1. Define a question
 2. Search datasets from Kaggle
@@ -27,12 +27,12 @@ Datasets from: [kaggle](https://www.kaggle.com/geoffnel/evs-one-electric-vehicle
 5. Cleaning Dataset
 6. Exploratory Data Analysis
 
-### 🛠️ Tools
+## 🛠️ Tools
 
 - R Language
 - R Studio Desktop
 
-### 📝 Table of Contents
+## 📝 Table of Contents
 1. [Exploratory Data Analysis](./explore.md)
 2. [Data Visualization]()
 
