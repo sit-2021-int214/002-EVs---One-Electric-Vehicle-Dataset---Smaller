@@ -40,5 +40,5 @@ ElectricCar$PowerTrain <- ElectricCar$PowerTrain %>% as.factor()
 #Change data type of Brand to factor.
 ElectricCar$Brand <- ElectricCar$Brand %>% as.factor()
 
-ElectricCar %>% View()
+ElectricCar %>% glimpse()
 
