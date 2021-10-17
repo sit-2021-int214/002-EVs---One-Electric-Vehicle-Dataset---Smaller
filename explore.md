@@ -101,8 +101,22 @@ ElectricCar<- read_csv("https://raw.githubusercontent.com/sit-2021-int214/002-EV
 meanTopSpeed <- ElectricCar$TopSpeed %>% mean(.)
 fast_car <- ElectricCar %>% distinct() %>% select(Brand,Model,TopSpeed) %>% filter(TopSpeed > meanTopSpeed)
 ```
-#### Answer: 
+#### Answer: **ยังไม่ได้อธิบาย
 ```{R}
+# A tibble: 46 x 3
+   Brand    Model                         TopSpeed
+   <fct>    <chr>                            <dbl>
+ 1 Tesla    Model 3 Long Range Dual Motor      233
+ 2 Polestar 2                                  210
+ 3 BMW      iX3                                180
+ 4 Lucid    Air                                250
+ 5 Tesla    Model 3 Standard Range Plus        225
+ 6 Audi     Q4 e-tron                          180
+ 7 Mercedes EQC 400 4MATIC                     180
+ 8 BMW      i4                                 200
+ 9 Porsche  Taycan Turbo S                     260
+10 Tesla    Model Y Long Range Dual Motor      217
+# ... with 36 more rows
 ```
 
 ### 2. รถยนต์ไฟฟ้ายี่ห้อและโมเดลไหนที่มีความเร็วสูงสุดมากกว่าค่าเฉลี่ยของรถยนต์ไฟฟ้าทั้งหมด และมีราคาน้อยกว่า 60000 ยูโร
@@ -111,8 +125,27 @@ fast_car <- ElectricCar %>% distinct() %>% select(Brand,Model,TopSpeed) %>% filt
 meanTopSpeed <- ElectricCar$TopSpeed %>% mean(.)
 fast_car_cheap <- ElectricCar %>% distinct() %>% select(Brand,Model,TopSpeed,PriceEuro) %>% filter(TopSpeed > meanTopSpeed & PriceEuro < 60000)
 ```
-#### Answer: 
-```{R}                                                        
+#### Answer: **ยังไม่ได้อธิบาย
+```{R}
+# A tibble: 16 x 4
+   Brand    Model                         TopSpeed PriceEuro
+   <fct>    <chr>                            <dbl>     <dbl>
+ 1 Tesla    Model 3 Long Range Dual Motor      233     55480
+ 2 Polestar 2                                  210     56440
+ 3 Tesla    Model 3 Standard Range Plus        225     46380
+ 4 Audi     Q4 e-tron                          180     55000
+ 5 Tesla    Model Y Long Range Dual Motor      217     58620
+ 6 Mercedes EQA                                200     45000
+ 7 Ford     Mustang Mach-E ER RWD              180     54475
+ 8 Tesla    Cybertruck Dual Motor              190     55000
+ 9 Audi     Q4 Sportback e-tron                180     57500
+10 Ford     Mustang Mach-E SR AWD              180     54000
+11 Ford     Mustang Mach-E SR RWD              180     46900
+12 Tesla    Cybertruck Single Motor            180     45000
+13 Skoda    Enyaq iV vRS                       180     47500
+14 Nissan   Ariya e-4ORCE 87kWh                200     57500
+15 Byton    M-Byte 72 kWh 2WD                  190     53500
+16 Nissan   Ariya e-4ORCE 63kWh                200     50000
 ```
 
 ### 3. รถยนต์ไฟฟ้ายี่ห้อและโมเดลไหนที่มีที่นั่งมากกว่า 4 ที่นั่งและราคาน้อยกว่า 50000 ยูโร
@@ -120,8 +153,22 @@ fast_car_cheap <- ElectricCar %>% distinct() %>% select(Brand,Model,TopSpeed,Pri
 ```{R}
 family_car <- ElectricCar %>% distinct() %>% select(Brand,Model, Seats,PriceEuro) %>% filter(Seats > 4 & PriceEuro < 50000)
 ```
-#### Answer:
+#### Answer: **ยังไม่ได้อธิบาย
 ```{R}
+# A tibble: 42 x 4
+   Brand      Model                       Seats PriceEuro
+   <fct>      <chr>                       <dbl>     <dbl>
+ 1 Volkswagen ID.3 Pure                       5     30000
+ 2 Volkswagen e-Golf                          5     31900
+ 3 Peugeot    e-208                           5     29682
+ 4 Tesla      Model 3 Standard Range Plus     5     46380
+ 5 Nissan     Leaf                            5     29234
+ 6 Hyundai    Kona Electric 64 kWh            5     40795
+ 7 Hyundai    IONIQ Electric                  5     34459
+ 8 MG         ZS EV                           5     30000
+ 9 Opel       Corsa-e                         5     29146
+10 Skoda      Enyaq iV 50                     5     35000
+# ... with 32 more rows
 ```
 
 ### 4. รถยนต์ที่ชาร์จไฟฟ้าหนึ่งครั้งแล้ววิ่งได้มากกว่าค่าเฉลี่ยของรถยนต์ไฟฟ้าทั้งหมดโดยมีราคาต่ำกว่าค่าเฉลี่ยทั้งหมด
@@ -133,6 +180,20 @@ good_value_car <- ElectricCar %>% distinct() %>% select(Brand,Model,Range,PriceE
 ```
 #### Answer:
 ```{R}
+# A tibble: 22 x 4
+   Brand      Model                         Range PriceEuro
+   <fct>      <chr>                         <dbl>     <dbl>
+ 1 Tesla      Model 3 Long Range Dual Motor   450     55480
+ 2 Audi       Q4 e-tron                       400     55000
+ 3 Hyundai    Kona Electric 64 kWh            400     40795
+ 4 Volkswagen ID.3 Pro S                      440     40936
+ 5 Volkswagen ID.4                            420     45000
+ 6 Volkswagen ID.3 Pro                        350     33000
+ 7 Kia        e-Niro 64 kWh                   370     38105
+ 8 CUPRA      el-Born                         425     45000
+ 9 Mercedes   EQA                             350     45000
+10 Kia        e-Soul 64 kWh                   365     36837
+# ... with 12 more rows
 ```
 
 ### 5. รถยนต์ไฟฟ้าที่ประหยัดไฟมากกว่าค่าเฉลี่ยของรถยนต์คันอื่นและมีที่นั่งมากกว่า 4
@@ -143,5 +204,19 @@ energy_saving_car <- ElectricCar %>% distinct() %>% select(Brand,Model,Efficienc
 ```
 #### Answer:
 ```{R}
+# A tibble: 35 x 5
+   Brand    Model                       Efficiency Seats PriceEuro
+   <fct>    <chr>                            <dbl> <dbl>     <dbl>
+ 1 BMW      iX3                                206     5     68040
+ 2 Audi     Q4 e-tron                          193     5     55000
+ 3 Mercedes EQC 400 4MATIC                     216     5     69484
+ 4 MG       ZS EV                              193     5     30000
+ 5 Volvo    XC40 P8 AWD Recharge               200     5     60437
+ 6 Audi     e-tron 50 quattro                  231     5     67358
+ 7 Tesla    Cybertruck Tri Motor               267     6     75000
+ 8 Lexus    UX 300e                            193     5     50000
+ 9 Audi     e-tron Sportback 55 quattro        228     5     81639
+10 Audi     e-tron 55 quattro                  237     5     79445
+# ... with 25 more rows
 ```
 
