@@ -98,6 +98,8 @@ ElectricCar<- read_csv("https://raw.githubusercontent.com/sit-2021-int214/002-EV
 ## 1. รถยนต์ไฟฟ้ายี่ห้อและโมเดลไหนที่มีความเร็วสูงสุดมากกว่าค่าเฉลี่ยของรถยนต์ไฟฟ้าทั้งหมด
 ### Solve:
 ```{R}
+meanTopSpeed <- ElectricCar$TopSpeed %>% mean(.)
+fast_car <- ElectricCar %>% distinct() %>% select(Brand,Model,TopSpeed) %>% filter(TopSpeed > meanTopSpeed)
 ```
 #### Answer: 
 ```{R}
@@ -106,6 +108,8 @@ ElectricCar<- read_csv("https://raw.githubusercontent.com/sit-2021-int214/002-EV
 ### 2. รถยนต์ไฟฟ้ายี่ห้อและโมเดลไหนที่มีความเร็วสูงสุดมากกว่าค่าเฉลี่ยของรถยนต์ไฟฟ้าทั้งหมด และมีราคาน้อยกว่า 60000 ยูโร
 ### Solve:
 ```{R}
+meanTopSpeed <- ElectricCar$TopSpeed %>% mean(.)
+fast_car_cheap <- ElectricCar %>% distinct() %>% select(Brand,Model,TopSpeed,PriceEuro) %>% filter(TopSpeed > meanTopSpeed & PriceEuro < 60000)
 ```
 #### Answer: 
 ```{R}                                                        
@@ -114,6 +118,7 @@ ElectricCar<- read_csv("https://raw.githubusercontent.com/sit-2021-int214/002-EV
 ### 3. รถยนต์ไฟฟ้ายี่ห้อและโมเดลไหนที่มีที่นั่งมากกว่า 4 ที่นั่งและราคาน้อยกว่า 50000 ยูโร
 ### Solve:
 ```{R}
+family_car <- ElectricCar %>% distinct() %>% select(Brand,Model, Seats,PriceEuro) %>% filter(Seats > 4 & PriceEuro < 50000)
 ```
 #### Answer:
 ```{R}
@@ -122,6 +127,9 @@ ElectricCar<- read_csv("https://raw.githubusercontent.com/sit-2021-int214/002-EV
 ### 4. รถยนต์ที่ชาร์จไฟฟ้าหนึ่งครั้งแล้ววิ่งได้มากกว่าค่าเฉลี่ยของรถยนต์ไฟฟ้าทั้งหมดโดยมีราคาต่ำกว่าค่าเฉลี่ยทั้งหมด
 ### Solve:
 ```{R}
+meanTopRage <- ElectricCar$Range %>% mean(.)
+meanPrice <- ElectricCar$PriceEuro %>% mean(.)
+good_value_car <- ElectricCar %>% distinct() %>% select(Brand,Model,Range,PriceEuro) %>% filter(Range > meanTopRage & PriceEuro < meanPrice)
 ```
 #### Answer:
 ```{R}
@@ -130,6 +138,8 @@ ElectricCar<- read_csv("https://raw.githubusercontent.com/sit-2021-int214/002-EV
 ### 5. รถยนต์ไฟฟ้าที่ประหยัดไฟมากกว่าค่าเฉลี่ยของรถยนต์คันอื่นและมีที่นั่งมากกว่า 4
 ### Solve:
 ```{R}
+meanEnnergy <- ElectricCar$Efficiency %>% mean(.)
+energy_saving_car <- ElectricCar %>% distinct() %>% select(Brand,Model,Efficiency, Seats,PriceEuro) %>% filter(Seats > 4 & Efficiency > meanEnnergy)
 ```
 #### Answer:
 ```{R}
