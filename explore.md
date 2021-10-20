@@ -101,7 +101,7 @@ ElectricCar<- read_csv("https://raw.githubusercontent.com/sit-2021-int214/002-EV
 meanTopSpeed <- ElectricCar$TopSpeed %>% mean(.)
 fast_car <- ElectricCar %>% distinct() %>% select(Brand,Model,TopSpeed) %>% filter(TopSpeed > meanTopSpeed)
 ```
-#### Answer: รายชื่อรถยนต์ไฟฟ้ายี่ห้อและโมเดลที่มีความเร็วสูงสุดมากกว่าค่าเฉลี่ยของรถยนต์ไฟฟ้าทั้งหมด (รถที่เร็วกว่ายี่ห้ออื่นๆทั่วไป)
+#### Answer: ค่าเฉลี่ยของความเร็วสูงสุดของรถยนต์ไฟฟฟ้าอยู่ที่ 179 Km/Hr รายชื่อรถยนต์ไฟฟ้ายี่ห้อและโมเดลที่มีความเร็วสูงสุดมากกว่าค่าเฉลี่ยของรถยนต์ไฟฟ้าทั้งหมด (รถที่เร็วกว่ายี่ห้ออื่นๆทั่วไป)
 ```{R}
 # A tibble: 46 x 3
    Brand    Model                         TopSpeed
@@ -125,7 +125,7 @@ fast_car <- ElectricCar %>% distinct() %>% select(Brand,Model,TopSpeed) %>% filt
 meanTopSpeed <- ElectricCar$TopSpeed %>% mean(.)
 fast_car_cheap <- ElectricCar %>% distinct() %>% select(Brand,Model,TopSpeed,PriceEuro) %>% filter(TopSpeed > meanTopSpeed & PriceEuro < 60000)
 ```
-#### Answer: รายชื่อรถยนต์ไฟฟ้ายี่ห้อและโมเดลไหนที่มีความเร็วสูงสุดมากกว่าค่าเฉลี่ยของรถยนต์ไฟฟ้าทั้งหมด และมีราคาน้อยกว่า 60000 ยูโร (รถเร็วที่ราคาถูก)
+#### Answer: ค่าเฉลี่ยของความเร็วสูงสุดของรถยนต์ไฟฟฟ้าอยู่ที่ 179 Km/Hr รายชื่อรถยนต์ไฟฟ้ายี่ห้อและโมเดลไหนที่มีความเร็วสูงสุดมากกว่าค่าเฉลี่ยของรถยนต์ไฟฟ้าทั้งหมด และมีราคาน้อยกว่า 60000 ยูโร (รถเร็วที่ราคาถูก)
 ```{R}
 # A tibble: 16 x 4
    Brand    Model                         TopSpeed PriceEuro
@@ -178,7 +178,7 @@ meanTopRage <- ElectricCar$Range %>% mean(.)
 meanPrice <- ElectricCar$PriceEuro %>% mean(.)
 good_value_car <- ElectricCar %>% distinct() %>% select(Brand,Model,Range,PriceEuro) %>% filter(Range > meanTopRage & PriceEuro < meanPrice)
 ```
-#### Answer: ยี่ห้อและรุ่นที่ชาร์จไฟฟ้าหนึ่งครั้งแล้ววิ่งได้มากกว่าค่าเฉลี่ยของรถยนต์ไฟฟ้าทั้งหมดโดยมีราคาต่ำกว่าค่าเฉลี่ยทั้งหมด (รถที่คุ้มค่าวิ่งได้ไกลและมีราคาไม่แพง) มีดังนี้
+#### Answer: ค่าเฉลี่ยของการวิ่งได้มากที่สุดของรถยนต์ไฟฟ้าและราคาของรถยนต์ไฟฟฟ้าอยู่ที่ 338 Km และ 55811 ยูโร ตามลำดับ ยี่ห้อและรุ่นที่ชาร์จไฟฟ้าหนึ่งครั้งแล้ววิ่งได้มากกว่าค่าเฉลี่ยของรถยนต์ไฟฟ้าทั้งหมดโดยมีราคาต่ำกว่าค่าเฉลี่ยทั้งหมด (รถที่คุ้มค่าวิ่งได้ไกลและมีราคาไม่แพง) มีดังนี้
 ```{R}
 # A tibble: 22 x 4
    Brand      Model                         Range PriceEuro
@@ -202,7 +202,7 @@ good_value_car <- ElectricCar %>% distinct() %>% select(Brand,Model,Range,PriceE
 meanEnnergy <- ElectricCar$Efficiency %>% mean(.)
 energy_saving_car <- ElectricCar %>% distinct() %>% select(Brand,Model,Efficiency, Seats,PriceEuro) %>% filter(Seats > 4 & Efficiency > meanEnnergy)
 ```
-#### Answer: ยี่ห้อและรุ่นที่ประหยัดไฟมากกว่าค่าเฉลี่ยของคันอื่นและมีที่นั่งมากกว่า 4 มีลิสต์ดังนี้ (รถที่ประหยัดไฟและนั่งได้หลายคน)
+#### Answer: ค่าเฉลี่ยของรถยนต์ไฟฟ้าที่ประหยัดไฟอยู่ที่ 189 Wh/Km ยี่ห้อและรุ่นที่ประหยัดไฟมากกว่าค่าเฉลี่ยของคันอื่นและมีที่นั่งมากกว่า 4 มีลิสต์ดังนี้ (รถที่ประหยัดไฟและนั่งได้หลายคน)
 ```{R}
 # A tibble: 35 x 5
    Brand    Model                       Efficiency Seats PriceEuro
