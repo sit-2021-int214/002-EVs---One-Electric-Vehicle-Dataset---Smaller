@@ -1,7 +1,6 @@
 library(dplyr)
 library(readr)
-library(stringr)
-library(assertive)
+
 ElectricCar<- read_csv("https://raw.githubusercontent.com/sit-2021-int214/002-EVs---One-Electric-Vehicle-Dataset---Smaller/main/ElectricCarData_Norm.csv")
 
 

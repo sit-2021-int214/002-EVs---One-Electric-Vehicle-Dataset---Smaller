@@ -167,6 +167,19 @@ $ Price   <dbl> 54.71765, 54.93529, 56.07941, 56.59118, 56.63235, 57.15294, 57.1
 ```
 หนังสือที่มีราคามากกว่าค่าเฉลี่ยมีรีวิวอย่างไร
 
+6. List the name of book that have reviewer more than 200
+```
+many_review_book <- programming_book %>% select(Reviews, Book_title) %>% filter(Reviews > 200 )
+```
+Result:
+```
+Rows: 152
+Columns: 2
+$ Reviews    <chr> "3,829", "5,938", "481", "33", "593", "417", "80", "279", "370", "27", "676", "…
+$ Book_title <chr> "The Elements of Style", "Start with Why: How Great Leaders Inspire Everyone to…
+```
+อยากรู้รายชื่อหนังสือที่ reviewer มากกว่า 200
+
 ## Part 4: Visualization with GGplot2
 ### 1.) Graph show how many each type books
 ```
@@ -178,7 +191,6 @@ Result:
 
 จากกราฟจะเห็นได้ว่าราคากับรีวิวมีความสัมพันธ์กัน
 
-
 ### 2.) Graph show point page
 ```
 ggplot(data = page_good_rate_book, aes(x = Number_Of_Pages, y = Rating)) + geom_point()
@@ -187,4 +199,4 @@ Result:
 
 ![Graph 2](graph2.png)
 
-จากกราฟจะแสดงข้อมูลเบื้องต้น (max, min, mean, mean, outlier) เกี่ยวกับจำนวนหนังสือ
+จากกราฟจะแสดงข้อมูลเบื้องต้นส่วนมากหนังสือที่มีคะแนนมากๆ จะมีจำนวนหน้าที่น้อย

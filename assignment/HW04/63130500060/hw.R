@@ -1,10 +1,7 @@
 library(dplyr)
 library(readr)
 library(ggplot2)
-library()
 programming_book <- read.csv('https://raw.githubusercontent.com/safesit23/INT214-Statistics/main/datasets/prog_book.csv')
-
-glimpse(programming_book)
 
 #1
 top_rating_book <- programming_book %>% select(Rating , Book_title, Description ) %>% filter(Rating == max(Rating))
@@ -21,5 +18,11 @@ review_rating <- programming_book %>% select(Reviews, Rating) %>% filter(Rating 
 #5
 reviewer_book <- programming_book %>% select(Reviews, Price) %>% filter(Price > mean(Price))
 
-ggplot(data = review_rating) + geom_point()
+#6
+many_review_book <- programming_book %>% select(Reviews, Book_title) %>% filter(Reviews > 200 )
 
+ggplot(data = reviewer_book, aes(x = Reviews, y = Price)) + geom_point()
+View(reviewer_book)
+ggplot(data = page_good_rate_book, aes(x = Number_Of_Pages, y = Rating)) + geom_point()
+View(page_good_rate_book)
+write.csv(programming_book, file="Top_Programming_Book")
