@@ -187,7 +187,7 @@ ggplot(data = reviewer_book, aes(x = Reviews, y = Price)) + geom_point()
 ```
 Result:
 
-![Graph 1](graph1.png)
+![Graph 1](https://github.com/sit-2021-int214/002-EVs---One-Electric-Vehicle-Dataset---Smaller/blob/main/assignment/HW04/63130500002/chart_images/graph1.png?raw=true)
 
 จากกราฟจะเห็นได้ว่าราคากับรีวิวมีความสัมพันธ์กัน
 
@@ -197,6 +197,6 @@ ggplot(data = page_good_rate_book, aes(x = Number_Of_Pages, y = Rating)) + geom_
 ```
 Result:
 
-![Graph 2](graph2.png)
+![Graph 2](ghttps://github.com/sit-2021-int214/002-EVs---One-Electric-Vehicle-Dataset---Smaller/blob/main/assignment/HW04/63130500002/chart_images/graph2.png?raw=true)
 
 จากกราฟจะแสดงข้อมูลเบื้องต้นส่วนมากหนังสือที่มีคะแนนมากๆ จะมีจำนวนหน้าที่น้อย
