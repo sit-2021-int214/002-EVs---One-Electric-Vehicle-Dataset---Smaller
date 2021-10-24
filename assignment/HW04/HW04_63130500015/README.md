@@ -19,7 +19,6 @@ Choose Dataset:
 Prog_book <- read.csv('https://raw.githubusercontent.com/safesit23/INT214-Statistics/main/datasets/prog_book.csv')
 ```
 
-In this dataset has
 ```
 #library
 library(dplyr)
@@ -27,6 +26,7 @@ library(readr)
 #show data type each columns
 glimpse(programming_book)
 ```
+In this dataset has
 ```
 Rows: 271
 Columns: 7
