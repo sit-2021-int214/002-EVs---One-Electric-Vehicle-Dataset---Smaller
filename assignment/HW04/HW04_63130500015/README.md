@@ -73,7 +73,6 @@ Result :
 [[3]]
 [1] 12.33333
 ```
-** หาค่าmeanของแต่ละตัว
 
 ## Part 3: Transform data with dplyr and finding insight the data
 
