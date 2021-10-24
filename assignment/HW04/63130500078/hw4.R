@@ -45,3 +45,22 @@ goodrate <- progrimming_book %>% select(Book_title,Rating,Type) %>% filter(Ratin
 goodrate %>% View()
 
 
+
+type_plot <- table(progrimming_book$Type)
+type_plot
+Rating <- progrimming_book$Rating
+Price <- progrimming_book$Price
+
+graph<-data.frame(Rating,Price)
+
+barplot(type_plot,
+        main="Type Of Book",
+        xlab = "Type",
+        ylab = "Number of Book",col=rgb(0.2,0.4,0.6,0.6))
+
+
+ggplot(graph,aes(x=Price,y=Rating))+geom_point( color="#69b3a2")+ggtitle("Rating and Price")
+
+
+
+
