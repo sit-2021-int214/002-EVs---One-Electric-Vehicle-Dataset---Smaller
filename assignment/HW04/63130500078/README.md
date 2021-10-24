@@ -69,134 +69,132 @@ Result :
 #Loading library
 library(stringr)
 #remove string
-starwars$skin_color %>% str_remove(",") %>% str_remove(",")
-```
-Result : 
-```
-[1] "fair"              "gold"              "white blue"        "white"            
-[5] "light"             "light"             "light"             "white red"        
-[9] "light"             "fair"              "fair"              "fair"             
-[13] "unknown"           "fair"              "green"             "green-tan brown"  
-[17] "fair"              "fair"              "green"             "pale"             
-[21] "fair"              "metal"             "green"             "dark"             
-[25] "light"             "brown mottle"      "fair"              "fair"             
-[29] "brown"             "grey"              "fair"              "mottled green"    
-[33] "fair"              "orange"            "grey"              "green"            
-[37] "fair"              "blue grey"         "grey red"          "dark"             
-[41] "fair"              "red"               "pale"              "blue"             
-[45] "blue grey"         "white blue"        "grey green yellow" "dark"             
-[49] "pale"              "green"             "brown"             "dark"             
-[53] "pale"              "white"             "orange"            "blue"             
-[57] "dark"              "light"             "fair"              "green"            
-[61] "yellow"            "yellow"            "light"             "fair"             
-[65] "tan"               "tan"               "fair green yellow" "brown"            
-[69] "grey"              "grey"              "fair"              "grey blue"        
-[73] "silver red"        "green grey"        "grey"              "red blue white"   
-[77] "brown white"       "brown"             "light"             "pale"             
-[81] "grey"              "dark"              "light"             "light"            
-[85] "none"              "unknown"           "light"            
+progrimming_book$Reviews <- progrimming_book$Reviews %>% str_remove(",") %>% str_trim() %>% as.numeric()
+#Change data type
+progrimming_book$Type <- progrimming_book$Type %>% as.factor()         
 ```
 ** ทำให้สามารถลบตัวหนังสือที่ไม่ต้องการออกได้
 
 ## Part 3: Transform data with dplyr and finding insight the data
 
-1. The book with the highest ratings
+1. How many the book title have a number of Reviews more than average
+หนังสือเล่มไหนที่มี Reviews เยอะกว่าค่าเฉลี่ยของ Reviews
 ```
-top_rating_book <- programming_book %>% select(Rating , Book_title, Description ) %>% filter(Rating == max(Rating))
+mean_review <- progrimming_book$Reviews %>% mean(.)
+reviewer <- progrimming_book %>% select(Book_title,Reviews) %>% filter(Reviews > mean_review)
 
 ```
 Result:
 ```
-  Rating              Book_title
-1      5 Your First App: Node.js
+Rows: 46
+Columns: 2
+$ Book_title <chr> "The Elements of Style", "The Information: A History, a Theory, a Flood", "~
+$ Reviews    <dbl> 3829, 1406, 1658, 1325, 5938, 1817, 2093, 481, 1255, 593, 417, 279, 370, 20~
 ```
-อยากรู้ว่าหนังสือเล่มใดมี Rating มากที่สุด
+ค่าเฉลี่ยของ Reviews จะอยู่ที่ 185 Review ดังนั้นจะมีหนังสืออยู่ 46 เล่ม ที่มี Review เยอะกว่าค่าเฉลี่ย
 
-2. Books that are cheap and rated good
+2. How many the book title book have Type is ebook
+มีหนังสือเล่มกี่เล่มที่มี Type เป็น ebook
 ```
-price_good_rate_book <- programming_book %>% select(Rating , Book_title,Description) %>% filter(Rating > mean(Rating))
+ebook <- progrimming_book %>% select(Book_title,Type) %>% filter(Type == "ebook") 
 
 ```
 Result:
 ```
-Rows: 147
+Rows: 7
+Columns: 2
+$ Book_title <chr> "Your First App: Node.js", "Algorithms Unlocked", "Learn You a Haskell for ~
+$ Type       <fct> ebook, ebook, ebook, ebook, ebook, ebook, ebook
+```
+จะมีหนังสืออยู่ 7 เล่มที่มี Type เป็น ebook
+
+3. How many book cheap and good rating(compare with average)
+มีหนังสื่อกี่เล่มที่ราคาถูกและมีคะแนนที่ดี (เปรียบเทียบกับค่าเฉี่ลยของแต่อย่าง)
+```
+mean_price <- progrimming_book$Price %>% mean(.)
+mean_rate <- progrimming_book$Rating %>% mean(.) 
+book <- progrimming_book %>% select(Book_title,Rating,Price) %>% filter(Price < mean_price & Rating > mean_rate)
+```
+Result:
+```
+Rows: 89
 Columns: 3
-$ Rating      <dbl> 4.17, 4.09, 4.15, 4.62, 4.10, 4.22, 4.21, 4.28, 4.37, 4.25, 4.32, 4.13, 4.15, …
-$ Book_title  <chr> "The Elements of Style", "Start with Why: How Great Leaders Inspire Everyone t…
-$ Description <chr> "This style manual offers practical advice on improving writing skills. Throug…
+$ Book_title <chr> "The Elements of Style", "Start with Why: How Great Leaders Inspire Everyon~
+$ Rating     <dbl> 4.17, 4.09, 4.15, 4.62, 4.10, 4.22, 4.21, 4.28, 4.37, 4.25, 4.32, 4.13, 4.1~
+$ Price      <dbl> 9.323529, 14.232353, 14.364706, 14.641176, 17.229412, 17.491176, 18.938235,~
 ```
-อยากรู้ว่าหนังสือเล่มไหนที่มีเรทติ้งดีและมีราคาถูก
+ค่าเฉลี่ยของราคาหนังสือและคะแนน อยู่ที่ 54 และ 4 ตามลำดับ ดังนั้นจะมีหนังสื่ออยู่ 89 เล่มที่ถูกและคะแนนดี
 
-3. How many pages does a good rated book have?
+4. How many the book have number of review less than 100 and have rating less than average
+มีหนังสือกี่เล่มที่มีความคิดเห็นน้อยกว่า 100  และมีคะแนนต่ำกว่าค่าเฉลี่ย
 ```
-page_good_rate_book <- programming_book %>% select(Number_Of_Pages , Rating) %>% filter(Rating > mean(Rating))
+reviewer100 <- progrimming_book %>% select(Book_title,Reviews,Rating) %>% filter(Reviews < 100 & Rating < mean_rate)
+
 ```
 Result:
 ```
-.
-Rows: 147
-Columns: 2
-$ Number_Of_Pages <int> 105, 256, 368, 128, 542, 192, 224, 412, 320, 224, 384, 416, 184, 153, 257,…
-$ Rating          <dbl> 4.17, 4.09, 4.15, 4.62, 4.10, 4.22, 4.21, 4.28, 4.37, 4.25, 4.32, 4.13, 4.…
+Rows: 97
+Columns: 3
+$ Book_title <chr> "Responsive Web Design Overview For Beginners", "Ship It!", "The Quark and ~
+$ Reviews    <dbl> 0, 33, 80, 0, 19, 48, 1, 57, 91, 61, 0, 38, 3, 50, 78, 0, 22, 71, 11, 58, 1~
+$ Rating     <dbl> 3.33, 3.73, 3.85, 3.20, 3.67, 3.98, 3.96, 3.91, 4.03, 4.04, 4.00, 4.06, 3.3~
 ```
-อยากรู้จำนวนหน้าของหนังสือที่เรทติ้งมากกว่าค่าเฉลี่ย
+ค่าเฉลี่ยของคะแนนอยู่ที่ 4 คะแนน ดังนั้นมีหนังสืออยู่ 97 เล่มที่มีความคิดเห็นน้อยกว่า 100 และคะแนนต่ำกว่าค่าเฉลี่ย
 
-4. Higher the rating, the more reviews?
+5. How many the book title have a number of page between 250 to 300
+มีหนังสือกี่เล่มที่มีจำนวนหน้าอยู่ระหว่าง 250 ถึง 300
 ```
-review_rating <- programming_book %>% select(Reviews, Rating) %>% filter(Rating > mean(Rating))
+page <- progrimming_book %>% select(Book_title,Number_Of_Pages,Price) %>% filter(between(progrimming_book$Number_Of_Pages,250,300))
+
 ```
 Result:
 ```
-Rows: 147
-Columns: 2
-$ Reviews <chr> "3,829", "5,938", "1,817", "0", "2,092", "27", "16", "1,268", "1", "16", "39", "86…
-$ Rating  <dbl> 4.17, 4.09, 4.15, 4.62, 4.10, 4.22, 4.21, 4.28, 4.37, 4.25, 4.32, 4.13, 4.15, 4.23…
+Rows: 27
+Columns: 3
+$ Book_title      <chr> "The Meme Machine", "Start with Why: How Great Leaders Inspire Everyon~
+$ Number_Of_Pages <int> 288, 256, 259, 288, 288, 257, 258, 293, 250, 281, 290, 256, 288, 300, ~
+$ Price           <dbl> 14.18824, 14.23235, 14.50294, 16.07353, 20.40000, 23.05000, 25.28235, ~
 ```
-อยากรู้ว่ายิ่งเรทติ้งมีมากขึ้นการรีวิวก็จะมากขึ้นหรือเปล่า
+มีหนังสืออยู่ 27 เล่มที่มีจำนวนหน้าอยู่ระหว่าง 250 ถึง 300 หน้า
 
-5. How are more than average books reviewed?
+6. How many are the book good rate and have type is ebook (compare with average)
+มีหนังสื่ออยู่กี่เล่มที่มีคะแนนที่ดีและเป็นประเภท ebook (เปรยบเทียบกับค่าเฉลี่ย)
 ```
-reviewer_book <- programming_book %>% select(Reviews, Price) %>% filter(Price > mean(Price))
+goodrate <- progrimming_book %>% select(Book_title,Rating,Type) %>% filter(Rating > mean_rate & Type =="ebook")
 ```
 Result:
 ```
-Rows: 105
-Columns: 2
-$ Reviews <chr> "57", "302", "8", "1", "2", "275", "116", "26", "164", "164", "1", "0", "0", "11",…
-$ Price   <dbl> 54.71765, 54.93529, 56.07941, 56.59118, 56.63235, 57.15294, 57.15294, 58.42941, 58…
+Rows: 5
+Columns: 3
+$ Book_title <chr> "Your First App: Node.js", "Algorithms Unlocked", "Learn You a Haskell for ~
+$ Rating     <dbl> 5.00, 4.16, 4.31, 4.15, 4.45
+$ Type       <fct> ebook, ebook, ebook, ebook, ebook
 ```
-หนังสือที่มีราคามากกว่าค่าเฉลี่ยมีรีวิวอย่างไร
-
-6. List the name of book that have reviewer more than 200
-```
-many_review_book <- programming_book %>% select(Reviews, Book_title) %>% filter(Reviews > 200 )
-```
-Result:
-```
-Rows: 152
-Columns: 2
-$ Reviews    <chr> "3,829", "5,938", "481", "33", "593", "417", "80", "279", "370", "27", "676", "…
-$ Book_title <chr> "The Elements of Style", "Start with Why: How Great Leaders Inspire Everyone to…
-```
-อยากรู้รายชื่อหนังสือที่ reviewer มากกว่า 200
+ค่าเฉลี่ยของคะแนนจะอยู่ที่ 4 คะแนน ดังนั้นจะมีหนังสืออยุ่ 5 เล่มที่มีคะแนนที่ดีและเป็นประเภท ebook 
 
 ## Part 4: Visualization with GGplot2
 ### 1.) Graph show how many each type books
+กราฟแสดงจำนวนหนังสือแต่ละประเภท
 ```
-ggplot(data = reviewer_book, aes(x = Reviews, y = Price)) + geom_point()
-```
-Result:
+type_plot <- table(progrimming_book$Type)
+barplot(type_plot,
+        main="Type Of Book",
+        xlab = "Type",
+        ylab = "Number of Book",col=rgb(0.2,0.4,0.6,0.6))
 
-![Graph 1](graph1.png)
-
-จากกราฟจะเห็นได้ว่าราคากับรีวิวมีความสัมพันธ์กัน
-
-### 2.) Graph show point page
-```
-ggplot(data = page_good_rate_book, aes(x = Number_Of_Pages, y = Rating)) + geom_point()
 ```
 Result:
 
-![Graph 2](graph2.png)
+![Graph 1](Graph1.png)
 
-จากกราฟจะแสดงข้อมูลเบื้องต้นส่วนมากหนังสือที่มีคะแนนมากๆ จะมีจำนวนหน้าที่น้อย
+### 2.) Graph show point Rating and Price
+กราฟแสดงคะแนนและราคาของหนังสื่อทั้งหมด
+```
+Rating <- progrimming_book$Rating
+Price <- progrimming_book$Price
+graph<-data.frame(Rating,Price)
+ggplot(graph,aes(x=Price,y=Rating))+geom_point( color="#69b3a2")+ggtitle("Rating and Price")
+```
+Result:
+
+![Graph 2](Graph2.png)
