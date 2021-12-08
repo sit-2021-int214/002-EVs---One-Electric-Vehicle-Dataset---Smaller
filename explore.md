@@ -1,7 +1,7 @@
 # EVs - One Electric Vehicle Dataset - Smaller
 Dataset from : https://raw.githubusercontent.com/sit-2021-int214/002-EVs---One-Electric-Vehicle-Dataset---Smaller/main/ElectricCarData_Norm.csv (Not clean)
 
-Dataset from : https://raw.githubusercontent.com/sit-2021-int214/002-EVs---One-Electric-Vehicle-Dataset---Smaller/main/ElectricCarData_Clean.csv (Clean)
+Dataset from : https://raw.githubusercontent.com/sit-2021-int214/002-EVs---One-Electric-Vehicle-Dataset---Smaller/main/ElectricCar_Clean.csv (Clean)
 
 ## My Step
 1. Define a question
