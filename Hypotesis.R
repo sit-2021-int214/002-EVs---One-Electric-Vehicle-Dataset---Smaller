@@ -44,33 +44,6 @@ ElectricCar %>% glimpse()
 
 ElectricCar$Model %>% table()
 
-# Analyst
-
-#1
-meanTopSpeed <- ElectricCar$TopSpeed %>% mean(.)
-fast_car <- ElectricCar %>% distinct() %>% select(Brand,Model,TopSpeed) %>% filter(TopSpeed > meanTopSpeed)
-fast_car
-
-#2
-meanTopSpeed <- ElectricCar$TopSpeed %>% mean(.)
-fast_car_cheap <- ElectricCar %>% distinct() %>% select(Brand,Model,TopSpeed,PriceEuro) %>% filter(TopSpeed > meanTopSpeed & PriceEuro < 60000)
-fast_car_cheap
-
-#3
-family_car <- ElectricCar %>% distinct() %>% select(Brand,Model, Seats,PriceEuro) %>% filter(Seats > 4 & PriceEuro < 50000)
-family_car %>% View()
-
-#4
-meanTopRage <- ElectricCar$Range %>% mean(.)
-meanPrice <- ElectricCar$PriceEuro %>% mean(.)
-good_value_car <- ElectricCar %>% distinct() %>% select(Brand,Model,Range,PriceEuro) %>% filter(Range > meanTopRage & PriceEuro < meanPrice)
-good_value_car
-
-#5
-meanEnnergy <- ElectricCar$Efficiency %>% mean(.)
-energy_saving_car <- ElectricCar %>% distinct() %>% select(Brand,Model,Efficiency, Seats,PriceEuro) %>% filter(Seats > 4 & Efficiency > meanEnnergy)
-energy_saving_car
-
 #Hypothesis Testing
 # 1
 # Ho : P = 31
