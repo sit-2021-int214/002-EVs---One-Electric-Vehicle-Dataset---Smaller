@@ -112,4 +112,39 @@ if(critical_value>p_value){
   print("Accept H0")
 }
 
+#2
+#Ho: mue >= 60000
+#Ha: mue < 60000
+n <- 103
+mean_of_price <- ElectricCar$PriceEuro %>% mean(.)
+sigma <- ElectricCar$PriceEuro %>% sd(.)
+sigma
+mue0<- 60000
+mue0
+alpha <- 0.05
+alpha
 
+z<- (mean_of_price-mue0)/(sigma/sqrt(n))
+z
+
+#P value 
+p<- pnorm(z)
+p
+
+#Critical value
+crivalue <- qnorm(alpha)
+crivalue
+
+#P value
+if(p<alpha){
+  print("Reject Ho")
+}else{
+  print("Accept Ho")
+}
+
+#Critical value
+if(crivalue > z){
+  print("Reject Ho")
+}else{
+  print("Accept Ho")
+}
