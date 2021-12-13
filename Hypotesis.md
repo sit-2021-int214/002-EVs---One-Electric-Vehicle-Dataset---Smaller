@@ -95,8 +95,9 @@ alpha <- 0.05
 
 ```
 ### 3.2 คำนวณหาค่า z
-z<- (mean_of_price-mue0)/(sigma/sqrt(n))
+
 ```
+z<- (mean_of_price-mue0)/(sigma/sqrt(n))
 ```
 ### 3.3 คำนวณหา P
 ```
